@@ -1,46 +1,34 @@
-// 🌌 PARTICLES
+// =====================================
+// 🌌 MOVING PARTICLES
+// =====================================
+
+const particles = document.getElementById("particles");
 
 
-const particles =
-document.getElementById("particles");
+for (let i = 0; i < 80; i++) {
+
+    const particle = document.createElement("span");
+
+    particle.className = "particle";
 
 
-
-for(let i = 0; i < 80; i++){
-
-
-let particle =
-document.createElement("span");
+    particle.style.left =
+        Math.random() * 100 + "%";
 
 
-
-particle.className =
-"particle";
-
+    particle.style.top =
+        Math.random() * 100 + "%";
 
 
-particle.style.left =
-Math.random()*100+"%";
+    particle.style.animationDelay =
+        Math.random() * 5 + "s";
 
 
-
-particle.style.top =
-Math.random()*100+"%";
-
+    particle.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
 
 
-particle.style.animationDelay =
-Math.random()*5+"s";
-
-
-
-particle.style.animationDuration =
-(5 + Math.random()*10)+"s";
-
-
-
-particles.appendChild(particle);
-
+    particles.appendChild(particle);
 
 }
 
@@ -48,11 +36,11 @@ particles.appendChild(particle);
 
 
 
+// =====================================
+// 💬 DISCORD MEMBER COUNT
+// =====================================
 
-// 💬 DISCORD MEMBER COUNTER
-
-
-const discord =
+const discordCount =
 document.querySelector(".discord-count");
 
 
@@ -63,53 +51,38 @@ const SERVER_ID =
 
 async function loadDiscord(){
 
+    try{
 
-try{
-
-
-const response =
-await fetch(
-
-`https://discord.com/api/guilds/${SERVER_ID}/widget.json`
-
-);
+        const response = await fetch(
+            `https://discord.com/api/guilds/${SERVER_ID}/widget.json`
+        );
 
 
+        if(!response.ok){
+            throw new Error("Discord unavailable");
+        }
 
-if(!response.ok){
 
-throw new Error();
-
-}
+        const data =
+        await response.json();
 
 
 
-const data =
-await response.json();
+        discordCount.innerHTML =
+        `💬 ${data.presence_count} Members Online`;
 
 
+    }
 
-discord.innerHTML =
+    catch(error){
 
-`💬 ${data.presence_count} Members Online`;
-
-
-
-}
-
-catch(error){
+        console.log(error);
 
 
-console.log(error);
+        discordCount.innerHTML =
+        "💬 Discord Offline";
 
-
-discord.innerHTML =
-
-"💬 Discord Unavailable";
-
-
-}
-
+    }
 
 }
 
@@ -118,11 +91,114 @@ discord.innerHTML =
 loadDiscord();
 
 
+setInterval(
+    loadDiscord,
+    300000
+);
+
+
+
+
+
+
+
+// =====================================
+// 🔴 TWITCH LIVE STATUS
+// =====================================
+
+
+const liveStatus =
+document.querySelector(".live-status");
+
+
+
+const TWITCH_API =
+
+"https://96255137-d4b4-4a4d-bfb9-48c9bc152988-00-3qf4o6h0bop86.janeway.replit.dev/twitch";
+
+
+
+
+
+async function checkTwitch(){
+
+
+    try{
+
+
+        const response =
+        await fetch(TWITCH_API);
+
+
+
+        const data =
+        await response.json();
+
+
+
+
+        if(data.live){
+
+
+
+            liveStatus.innerHTML = `
+
+            🔴 LIVE NOW<br><br>
+
+            🎮 ${data.game}<br>
+
+            👥 ${data.viewers} viewers<br><br>
+
+            ${data.title}
+
+            `;
+
+
+
+        }
+
+        else{
+
+
+            liveStatus.innerHTML =
+
+            "⚫ Currently Offline";
+
+
+        }
+
+
+
+    }
+
+
+    catch(error){
+
+
+        console.log(error);
+
+
+        liveStatus.innerHTML =
+
+        "⚠️ Twitch Status Error";
+
+
+    }
+
+
+}
+
+
+
+
+checkTwitch();
+
+
 
 setInterval(
 
-loadDiscord,
+    checkTwitch,
 
-300000
+    60000
 
 );
