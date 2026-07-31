@@ -150,7 +150,7 @@ document.getElementById("streamInfo");
 
 const TWITCH_API =
 
-"https://realfitty-twitch-api.onrender.com/";
+"https://realfitty-twitch-api.onrender.com/twitch";
 
 
 async function checkTwitch(){
