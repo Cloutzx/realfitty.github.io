@@ -1,11 +1,17 @@
-// =====================================
-// 🌌 MOVING PARTICLES
-// =====================================
+/* =========================================
+   REALFITTY WEBSITE SCRIPT
+========================================= */
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
 
 const particles = document.getElementById("particles");
 
 
-for (let i = 0; i < 80; i++) {
+for(let i = 0; i < 100; i++){
 
     const particle = document.createElement("span");
 
@@ -21,11 +27,23 @@ for (let i = 0; i < 80; i++) {
 
 
     particle.style.animationDelay =
-        Math.random() * 5 + "s";
+        Math.random() * 8 + "s";
 
 
     particle.style.animationDuration =
-        (5 + Math.random() * 10) + "s";
+        (6 + Math.random() * 12) + "s";
+
+
+    const size =
+        2 + Math.random() * 5;
+
+
+    particle.style.width =
+        size + "px";
+
+
+    particle.style.height =
+        size + "px";
 
 
     particles.appendChild(particle);
@@ -34,14 +52,43 @@ for (let i = 0; i < 80; i++) {
 
 
 
+/* =========================================
+   MOUSE GLOW
+========================================= */
 
 
-// =====================================
-// 💬 DISCORD MEMBER COUNT
-// =====================================
+const cursorGlow =
+document.getElementById("cursorGlow");
+
+
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+
+    cursorGlow.style.left =
+    e.clientX + "px";
+
+
+    cursorGlow.style.top =
+    e.clientY + "px";
+
+
+});
+
+
+
+
+
+/* =========================================
+   DISCORD MEMBER COUNT
+========================================= */
+
 
 const discordCount =
 document.querySelector(".discord-count");
+
 
 
 const SERVER_ID =
@@ -51,16 +98,26 @@ const SERVER_ID =
 
 async function loadDiscord(){
 
+
     try{
 
-        const response = await fetch(
-            `https://discord.com/api/guilds/${SERVER_ID}/widget.json`
+
+        const response =
+        await fetch(
+
+        `https://discord.com/api/guilds/${SERVER_ID}/widget.json`
+
         );
 
 
         if(!response.ok){
-            throw new Error("Discord unavailable");
+
+            throw new Error(
+            "Discord unavailable"
+            );
+
         }
+
 
 
         const data =
@@ -69,20 +126,31 @@ async function loadDiscord(){
 
 
         discordCount.innerHTML =
-        `💬 ${data.presence_count} Members Online`;
+
+        `
+        💬 ${data.presence_count}
+        Members Online
+        `;
+
 
 
     }
 
     catch(error){
 
+
         console.log(error);
 
 
         discordCount.innerHTML =
-        "💬 Discord Offline";
+
+        `
+        💬 Discord Offline
+        `;
+
 
     }
+
 
 }
 
@@ -91,9 +159,13 @@ async function loadDiscord(){
 loadDiscord();
 
 
+
 setInterval(
+
     loadDiscord,
+
     300000
+
 );
 
 
@@ -101,14 +173,17 @@ setInterval(
 
 
 
-
-// =====================================
-// 🔴 TWITCH LIVE STATUS
-// =====================================
+/* =========================================
+   TWITCH LIVE STATUS
+========================================= */
 
 
 const liveStatus =
 document.querySelector(".live-status");
+
+
+const streamInfo =
+document.getElementById("streamInfo");
 
 
 
@@ -141,15 +216,51 @@ async function checkTwitch(){
 
 
 
-            liveStatus.innerHTML = `
+            liveStatus.classList.add(
+            "live"
+            );
 
-            🔴 LIVE NOW<br><br>
 
-            🎮 ${data.game}<br>
 
-            👥 ${data.viewers} viewers<br><br>
+            liveStatus.innerHTML =
+
+            `
+            🔴 LIVE NOW
+            `;
+
+
+
+            streamInfo.innerHTML =
+
+
+            `
+
+            <h3>
+
+            🎮 ${data.game}
+
+            </h3>
+
+
+            <br>
+
+
+            <p>
+
+            👥 ${data.viewers}
+            viewers
+
+            </p>
+
+
+            <br>
+
+
+            <p>
 
             ${data.title}
+
+            </p>
 
             `;
 
@@ -160,12 +271,37 @@ async function checkTwitch(){
         else{
 
 
+
+            liveStatus.classList.remove(
+            "live"
+            );
+
+
+
             liveStatus.innerHTML =
 
-            "⚫ Currently Offline";
+            `
+            ⚫ Currently Offline
+            `;
+
+
+
+            streamInfo.innerHTML =
+
+            `
+
+            <p>
+
+            RealFitty is currently offline.
+
+            </p>
+
+            `;
+
 
 
         }
+
 
 
 
@@ -175,19 +311,35 @@ async function checkTwitch(){
     catch(error){
 
 
-        console.log(error);
+        console.log(
+        "Twitch Error:",
+        error
+        );
+
 
 
         liveStatus.innerHTML =
 
-        "⚠️ Twitch Status Error";
+        `
+        ⚠️ Twitch Error
+        `;
+
+
+
+        streamInfo.innerHTML =
+
+        `
+        <p>
+        Unable to load stream data.
+        </p>
+        `;
+
 
 
     }
 
 
 }
-
 
 
 
@@ -200,5 +352,95 @@ setInterval(
     checkTwitch,
 
     60000
+
+);
+
+
+
+
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+
+const observer =
+
+new IntersectionObserver(
+
+(entries)=>{
+
+
+entries.forEach(
+
+(entry)=>{
+
+
+if(entry.isIntersecting){
+
+
+    entry.target.classList.add(
+    "show"
+    );
+
+
+}
+
+
+
+});
+
+
+},
+
+
+{
+
+threshold:.15
+
+}
+
+
+
+);
+
+
+
+
+
+document
+.querySelectorAll(".fade")
+.forEach(
+
+(section)=>{
+
+
+observer.observe(section);
+
+
+}
+
+);
+
+
+
+
+
+
+/* =========================================
+   PAGE LOAD ANIMATION
+========================================= */
+
+
+window.addEventListener(
+"load",
+()=>{
+
+
+document.body.style.opacity = "1";
+
+
+}
 
 );
