@@ -1,47 +1,31 @@
-// 🌌 PARTICLES
+// 🌌 MOVING PARTICLES
 
-const particles =
-document.getElementById("particles");
+const particles = document.getElementById("particles");
 
+for (let i = 0; i < 80; i++) {
 
-for(let i = 0; i < 80; i++){
+    let particle = document.createElement("span");
 
+    particle.className = "particle";
 
-let p =
-document.createElement("span");
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.top = Math.random() * 100 + "%";
 
+    particle.style.animationDelay =
+        Math.random() * 5 + "s";
 
-p.className="particle";
+    particle.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
 
-
-p.style.left =
-Math.random()*100+"%";
-
-
-p.style.top =
-Math.random()*100+"%";
-
-
-p.style.animationDelay =
-Math.random()*5+"s";
-
-
-particles.appendChild(p);
-
-
+    particles.appendChild(particle);
 }
 
 
 
+// 💬 DISCORD MEMBER COUNTER
 
-
-
-// 💬 DISCORD COUNTER
-
-
-const discord =
+const discordCount =
 document.querySelector(".discord-count");
-
 
 
 const SERVER_ID =
@@ -49,71 +33,51 @@ const SERVER_ID =
 
 
 
-async function loadDiscord(){
+async function loadDiscordMembers() {
+
+    try {
+
+        const response = await fetch(
+            `https://discord.com/api/guilds/${SERVER_ID}/widget.json`
+        );
 
 
-try{
+        if (!response.ok) {
+            throw new Error("Discord widget disabled");
+        }
 
 
-let data =
-await fetch(
-
-`https://discord.com/api/guilds/${SERVER_ID}/widget.json`
-
-)
-
-.then(r=>r.json());
+        const data = await response.json();
 
 
-
-discord.innerHTML =
-`💬 ${data.presence_count} Members Online`;
-
+        discordCount.innerHTML =
+        `💬 ${data.presence_count} Members Online`;
 
 
-}
-
-catch{
+    } catch (error) {
 
 
-discord.innerHTML =
-"💬 Discord Offline";
+        console.log(
+            "Discord Error:",
+            error
+        );
 
 
-}
+        discordCount.innerHTML =
+        "💬 Discord Unavailable";
 
 
-}
-
-
-loadDiscord();
-
-
-
-
-
-
-// 🔴 TWITCH STATUS
-
-
-const live =
-document.querySelector(".live-status");
-
-
-
-async function checkTwitch(){
-
-
-// Twitch API requires a backend token.
-// This placeholder is ready for connection.
-
-
-live.innerHTML =
-"⚫ Currently Offline";
-
+    }
 
 }
 
 
 
-checkTwitch();
+loadDiscordMembers();
+
+
+// Refresh every 5 minutes
+setInterval(
+    loadDiscordMembers,
+    300000
+);
