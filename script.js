@@ -1,30 +1,58 @@
-// 🌌 MOVING PARTICLES
+// 🌌 PARTICLES
 
-const particles = document.getElementById("particles");
 
-for (let i = 0; i < 80; i++) {
+const particles =
+document.getElementById("particles");
 
-    let particle = document.createElement("span");
 
-    particle.className = "particle";
 
-    particle.style.left = Math.random() * 100 + "%";
-    particle.style.top = Math.random() * 100 + "%";
+for(let i = 0; i < 80; i++){
 
-    particle.style.animationDelay =
-        Math.random() * 5 + "s";
 
-    particle.style.animationDuration =
-        (5 + Math.random() * 10) + "s";
+let particle =
+document.createElement("span");
 
-    particles.appendChild(particle);
+
+
+particle.className =
+"particle";
+
+
+
+particle.style.left =
+Math.random()*100+"%";
+
+
+
+particle.style.top =
+Math.random()*100+"%";
+
+
+
+particle.style.animationDelay =
+Math.random()*5+"s";
+
+
+
+particle.style.animationDuration =
+(5 + Math.random()*10)+"s";
+
+
+
+particles.appendChild(particle);
+
+
 }
+
+
+
 
 
 
 // 💬 DISCORD MEMBER COUNTER
 
-const discordCount =
+
+const discord =
 document.querySelector(".discord-count");
 
 
@@ -33,51 +61,68 @@ const SERVER_ID =
 
 
 
-async function loadDiscordMembers() {
-
-    try {
-
-        const response = await fetch(
-            `https://discord.com/api/guilds/${SERVER_ID}/widget.json`
-        );
+async function loadDiscord(){
 
 
-        if (!response.ok) {
-            throw new Error("Discord widget disabled");
-        }
+try{
 
 
-        const data = await response.json();
+const response =
+await fetch(
+
+`https://discord.com/api/guilds/${SERVER_ID}/widget.json`
+
+);
 
 
-        discordCount.innerHTML =
-        `💬 ${data.presence_count} Members Online`;
 
+if(!response.ok){
 
-    } catch (error) {
-
-
-        console.log(
-            "Discord Error:",
-            error
-        );
-
-
-        discordCount.innerHTML =
-        "💬 Discord Unavailable";
-
-
-    }
+throw new Error();
 
 }
 
 
 
-loadDiscordMembers();
+const data =
+await response.json();
 
 
-// Refresh every 5 minutes
+
+discord.innerHTML =
+
+`💬 ${data.presence_count} Members Online`;
+
+
+
+}
+
+catch(error){
+
+
+console.log(error);
+
+
+discord.innerHTML =
+
+"💬 Discord Unavailable";
+
+
+}
+
+
+}
+
+
+
+loadDiscord();
+
+
+
 setInterval(
-    loadDiscordMembers,
-    300000
+
+loadDiscord,
+
+300000
+
 );
