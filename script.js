@@ -1,13 +1,3 @@
-/* =========================================
-   REALFITTY WEBSITE SCRIPT
-========================================= */
-
-
-/* =========================================
-   PARTICLES
-========================================= */
-
-
 const particles = document.getElementById("particles");
 
 
@@ -50,13 +40,6 @@ for(let i = 0; i < 100; i++){
 
 }
 
-
-
-/* =========================================
-   MOUSE GLOW
-========================================= */
-
-
 const cursorGlow =
 document.getElementById("cursorGlow");
 
@@ -76,15 +59,6 @@ document.addEventListener(
 
 
 });
-
-
-
-
-
-/* =========================================
-   DISCORD MEMBER COUNT
-========================================= */
-
 
 const discordCount =
 document.querySelector(".discord-count");
@@ -168,31 +142,15 @@ setInterval(
 
 );
 
-
-
-
-
-
-/* =========================================
-   TWITCH LIVE STATUS
-========================================= */
-
-
 const liveStatus =
 document.querySelector(".live-status");
-
 
 const streamInfo =
 document.getElementById("streamInfo");
 
-
-
 const TWITCH_API =
 
-"https://96255137-d4b4-4a4d-bfb9-48c9bc152988-00-3qf4o6h0bop86.janeway.replit.dev/twitch";
-
-
-
+"https://realfitty-twitch-api.onrender.com/";
 
 
 async function checkTwitch(){
@@ -355,16 +313,6 @@ setInterval(
 
 );
 
-
-
-
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-
 const observer =
 
 new IntersectionObserver(
@@ -422,16 +370,6 @@ observer.observe(section);
 }
 
 );
-
-
-
-
-
-
-/* =========================================
-   PAGE LOAD ANIMATION
-========================================= */
-
 
 window.addEventListener(
 "load",
