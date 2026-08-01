@@ -40,14 +40,8 @@ for(let i = 0; i < 100; i++){
 
 }
 
-
-
-
-
 const cursorGlow =
 document.getElementById("cursorGlow");
-
-
 
 document.addEventListener(
 "mousemove",
@@ -64,25 +58,11 @@ document.addEventListener(
 
 });
 
-
-
-
-
-
-// ===============================
-// DISCORD COUNT
-// ===============================
-
-
 const discordCount =
 document.querySelector(".discord-count");
 
-
-
 const SERVER_ID =
 "1532504492342378596";
-
-
 
 async function loadDiscord(){
 
@@ -156,17 +136,6 @@ setInterval(
 
 );
 
-
-
-
-
-
-
-// ===============================
-// TWITCH API STATUS
-// ===============================
-
-
 const liveStatus =
 document.querySelector(".live-status");
 
@@ -174,14 +143,9 @@ document.querySelector(".live-status");
 const streamInfo =
 document.getElementById("streamInfo");
 
-
-
 const TWITCH_API =
 
 "https://realfitty-twitch-api.onrender.com/twitch";
-
-
-
 
 async function checkTwitch(){
 
@@ -192,32 +156,20 @@ async function checkTwitch(){
         const response =
         await fetch(TWITCH_API);
 
-
-
         const data =
         await response.json();
 
-
-
-
-
         if(data.live){
-
-
 
             liveStatus.classList.add(
             "live"
             );
-
-
 
             liveStatus.innerHTML =
 
             `
             🔴 LIVE NOW
             `;
-
-
 
             streamInfo.innerHTML =
 
@@ -261,7 +213,6 @@ async function checkTwitch(){
         else{
 
 
-
             liveStatus.classList.remove(
             "live"
             );
@@ -288,12 +239,7 @@ async function checkTwitch(){
 
             `;
 
-
-
         }
-
-
-
 
     }
 
@@ -331,11 +277,7 @@ async function checkTwitch(){
 
 }
 
-
-
 checkTwitch();
-
-
 
 setInterval(
 
@@ -345,17 +287,6 @@ setInterval(
 
 );
 
-
-
-
-
-
-
-// ===============================
-// TWITCH EMBED PLAYER
-// ===============================
-
-
 function loadTwitchPlayer(){
 
 
@@ -364,8 +295,6 @@ function loadTwitchPlayer(){
         return;
 
     }
-
-
 
     new Twitch.Embed(
 
@@ -406,20 +335,7 @@ function loadTwitchPlayer(){
 
 }
 
-
-
 loadTwitchPlayer();
-
-
-
-
-
-
-
-// ===============================
-// SCROLL REVEAL
-// ===============================
-
 
 const observer =
 
@@ -427,11 +343,9 @@ new IntersectionObserver(
 
 (entries)=>{
 
-
 entries.forEach(
 
 (entry)=>{
-
 
 if(entry.isIntersecting){
 
@@ -442,7 +356,6 @@ if(entry.isIntersecting){
 
 
 }
-
 
 
 });
@@ -458,13 +371,7 @@ threshold:.15
 }
 
 
-
 );
-
-
-
-
-
 
 
 document
@@ -482,24 +389,12 @@ observer.observe(section);
 );
 
 
-
-
-
-
-
-
-// ===============================
-// PAGE LOAD
-// ===============================
-
-
 window.addEventListener(
 "load",
 ()=>{
 
 
 document.body.style.opacity = "1";
-
 
 }
 
