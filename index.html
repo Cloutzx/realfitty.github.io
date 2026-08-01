@@ -1,55 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RealFitty | Fortnite Creator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>RealFitty | Fortnite Creator</title>
 
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
 
 </head>
+
+
 <body>
 
-<!-- Background -->
+
 <div class="background"></div>
 
-<!-- Particles -->
+
 <div id="particles"></div>
 
-<!-- Mouse Glow -->
+
 <div id="cursorGlow"></div>
+
+
+
 
 <!-- ================= HERO ================= -->
 
+
 <header>
+
 
 <div class="hero">
 
+
 <div class="hero-left">
 
+
 <span class="creator-tag">
+
 FORTNITE CREATOR
+
 </span>
 
+
+
 <h1>
+
 REALFITTY
+
 </h1>
 
+
+
 <p class="hero-text">
+
 Competitive Fortnite gameplay,
 live streams, funny moments,
 community events,
 and content every week.
+
 </p>
 
+
+
+
 <div class="status">
+
 
 <div class="live-status">
 
@@ -57,15 +85,22 @@ and content every week.
 
 </div>
 
+
+
 <div class="discord-count">
 
 💬 Loading Discord...
 
 </div>
 
+
 </div>
 
+
+
+
 <div class="buttons">
+
 
 <a
 href="https://discord.gg/vFV6dZqZj4"
@@ -76,6 +111,8 @@ class="btn primary">
 
 </a>
 
+
+
 <a
 href="https://www.twitch.tv/fittyknowsball"
 target="_blank"
@@ -84,6 +121,8 @@ class="btn">
 🎮 Watch Live
 
 </a>
+
+
 
 <a
 href="https://www.tiktok.com/@realfitty"
@@ -94,13 +133,22 @@ class="btn">
 
 </a>
 
-</div>
 
 </div>
+
+
+
+</div>
+
+
+
+
 
 <div class="hero-right">
 
+
 <div class="hero-card">
+
 
 <div class="hero-card-title">
 
@@ -108,11 +156,15 @@ class="btn">
 
 </div>
 
+
+
 <div class="hero-card-number">
 
 Growing Every Day
 
 </div>
+
+
 
 <p>
 
@@ -122,25 +174,40 @@ and never miss a live notification.
 
 </p>
 
-</div>
+
 
 </div>
 
+
 </div>
+
+
+
+</div>
+
 
 </header>
 
+
+
+
+
 <!-- ================= ABOUT ================= -->
+
 
 <section class="fade">
 
+
 <div class="card">
+
 
 <h2>
 
 🔥 About RealFitty
 
 </h2>
+
+
 
 <p>
 
@@ -159,23 +226,37 @@ and there's always something happening.
 
 </p>
 
+
 </div>
+
 
 </section>
 
-<!-- ================= LIVE STATUS ================= -->
+
+
+
+
+
+
+<!-- ================= TWITCH STREAM ================= -->
+
 
 <section class="fade">
 
-<div class="card live-card">
+
+<div class="card twitch-card">
+
 
 <h2>
 
-🔴 Twitch Status
+🔴 Twitch Live Stream
 
 </h2>
 
+
+
 <div id="streamInfo">
+
 
 <p>
 
@@ -183,32 +264,120 @@ Checking stream status...
 
 </p>
 
+
 </div>
 
+
+
+
+
+<div class="twitch-container">
+
+
+
+<div class="twitch-video">
+
+
+<iframe
+
+id="twitch-player"
+
+
+src="https://player.twitch.tv/?channel=fittyknowsball&parent=localhost&muted=true"
+
+
+height="480"
+
+
+width="100%"
+
+
+allowfullscreen>
+
+
+</iframe>
+
+
+</div>
+
+
+
+
+
+
+<div class="twitch-chat">
+
+
+<iframe
+
+
+src="https://www.twitch.tv/embed/fittyknowsball/chat?parent=localhost"
+
+
+height="480"
+
+
+width="100%">
+
+
+</iframe>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
 <a
+
 href="https://www.twitch.tv/fittyknowsball"
+
 target="_blank"
+
 class="btn primary">
 
-Watch Stream
+
+💜 Open Twitch
+
 
 </a>
 
+
+
+
 </div>
+
 
 </section>
 
+
+
+
+
+
+
 <!-- ================= DISCORD ================= -->
+
 
 <section class="fade">
 
+
 <div class="card">
+
 
 <h2>
 
 💬 Join Our Discord
 
 </h2>
+
+
 
 <p>
 
@@ -219,35 +388,58 @@ and get notified whenever RealFitty goes live.
 
 </p>
 
+
+
+
 <div class="discord-widget">
+
 
 <iframe
 
+
 src="https://discord.com/widget?id=1532504492342378596&theme=dark"
+
 
 width="100%"
 
+
 height="500"
+
 
 allowtransparency="true"
 
+
 frameborder="0"
+
 
 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
 
+
 </iframe>
 
-</div>
 
 </div>
+
+
+
+</div>
+
 
 </section>
 
+
+
+
+
+
 <!-- ================= SOCIALS ================= -->
+
 
 <section class="fade">
 
+
 <div class="card">
+
 
 <h2>
 
@@ -255,12 +447,18 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 
 </h2>
 
+
+
+
 <div class="social-grid">
+
+
 
 <a
 href="https://www.twitch.tv/fittyknowsball"
 target="_blank"
 class="social-box">
+
 
 <h3>
 
@@ -268,18 +466,25 @@ class="social-box">
 
 </h3>
 
+
 <p>
 
 Live Streams
 
 </p>
 
+
 </a>
+
+
+
+
 
 <a
 href="https://www.tiktok.com/@realfitty"
 target="_blank"
 class="social-box">
+
 
 <h3>
 
@@ -287,18 +492,26 @@ class="social-box">
 
 </h3>
 
+
 <p>
 
 Short Clips
 
 </p>
 
+
 </a>
+
+
+
+
+
 
 <a
 href="https://discord.gg/vFV6dZqZj4"
 target="_blank"
 class="social-box">
+
 
 <h3>
 
@@ -306,18 +519,26 @@ class="social-box">
 
 </h3>
 
+
 <p>
 
 Join The Community
 
 </p>
 
+
 </a>
+
+
+
+
+
 
 <a
 href="https://paa.ge/realfitty/en"
 target="_blank"
 class="social-box">
+
 
 <h3>
 
@@ -325,25 +546,42 @@ class="social-box">
 
 </h3>
 
+
 <p>
 
 Everything In One Place
 
 </p>
 
+
 </a>
 
-</div>
+
+
 
 </div>
+
+
+</div>
+
 
 </section>
 
+
+
+
+
+
+
 <!-- ================= STATS ================= -->
+
 
 <section class="fade">
 
+
 <div class="card stats-card">
+
+
 
 <div class="stat">
 
@@ -353,13 +591,19 @@ Everything In One Place
 
 </h3>
 
+
 <span>
 
 Fortnite
 
 </span>
 
+
 </div>
+
+
+
+
 
 <div class="stat">
 
@@ -369,13 +613,19 @@ Fortnite
 
 </h3>
 
+
 <span>
 
 Live Streams
 
 </span>
 
+
 </div>
+
+
+
+
 
 <div class="stat">
 
@@ -385,13 +635,19 @@ Live Streams
 
 </h3>
 
+
 <span>
 
 Community
 
 </span>
 
+
 </div>
+
+
+
+
 
 <div class="stat">
 
@@ -401,19 +657,31 @@ Community
 
 </h3>
 
+
 <span>
 
 Content
 
 </span>
 
-</div>
 
 </div>
+
+
+
+</div>
+
 
 </section>
 
+
+
+
+
+
+
 <footer>
+
 
 <div class="footer-logo">
 
@@ -421,11 +689,15 @@ REALFITTY
 
 </div>
 
+
+
 <p>
 
 Fortnite • Variety • Community
 
 </p>
+
+
 
 <p>
 
@@ -433,9 +705,17 @@ Fortnite • Variety • Community
 
 </p>
 
+
 </footer>
+
+
+
+
 
 <script src="script.js"></script>
 
+
 </body>
+
+
 </html>
