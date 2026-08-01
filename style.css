@@ -1073,6 +1073,47 @@ footer{
 
 }
 
+.secret-area{
+    display:flex;
+    justify-content:center;
+    padding:30px;
+}
+
+
+#secretButton{
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    background:
+    rgba(64,130,214,.15);
+
+    border:
+    1px solid rgba(64,130,214,.5);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+#secretButton:hover{
+
+    transform:
+    scale(1.2);
+
+    box-shadow:
+    0 0 30px #4082D6;
+
+}
+
 @media(max-width:1000px){
 
     .hero{
@@ -1212,5 +1253,7 @@ footer{
         font-size:25px;
 
     }
+
+    
 
 }
