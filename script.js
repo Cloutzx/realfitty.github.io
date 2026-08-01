@@ -1,78 +1,47 @@
-/* =========================================
-   REALFITTY WEBSITE SCRIPT
-========================================= */
-
-
-/* =========================================
-   PARTICLES
-========================================= */
-
-
-const particles =
-document.getElementById("particles");
-
+const particles = document.getElementById("particles");
 
 
 for(let i = 0; i < 100; i++){
 
+    const particle = document.createElement("span");
 
-    const particle =
-    document.createElement("span");
-
-
-
-    particle.className =
-    "particle";
-
+    particle.className = "particle";
 
 
     particle.style.left =
-    Math.random() * 100 + "%";
-
+        Math.random() * 100 + "%";
 
 
     particle.style.top =
-    Math.random() * 100 + "%";
-
+        Math.random() * 100 + "%";
 
 
     particle.style.animationDelay =
-    Math.random() * 8 + "s";
-
+        Math.random() * 8 + "s";
 
 
     particle.style.animationDuration =
-    (6 + Math.random() * 12) + "s";
-
+        (6 + Math.random() * 12) + "s";
 
 
     const size =
-    2 + Math.random() * 5;
-
+        2 + Math.random() * 5;
 
 
     particle.style.width =
-    size + "px";
-
+        size + "px";
 
 
     particle.style.height =
-    size + "px";
-
+        size + "px";
 
 
     particles.appendChild(particle);
-
 
 }
 
 
 
-
-
-/* =========================================
-   CURSOR GLOW
-========================================= */
 
 
 const cursorGlow =
@@ -89,7 +58,6 @@ document.addEventListener(
     e.clientX + "px";
 
 
-
     cursorGlow.style.top =
     e.clientY + "px";
 
@@ -101,10 +69,9 @@ document.addEventListener(
 
 
 
-
-/* =========================================
-   DISCORD STATUS
-========================================= */
+// ===============================
+// DISCORD COUNT
+// ===============================
 
 
 const discordCount =
@@ -131,7 +98,6 @@ async function loadDiscord(){
         );
 
 
-
         if(!response.ok){
 
             throw new Error(
@@ -149,19 +115,14 @@ async function loadDiscord(){
 
         discordCount.innerHTML =
 
-
         `
-
         💬 ${data.presence_count}
-
         Members Online
-
         `;
 
 
 
     }
-
 
     catch(error){
 
@@ -169,14 +130,10 @@ async function loadDiscord(){
         console.log(error);
 
 
-
         discordCount.innerHTML =
 
-
         `
-
         💬 Discord Offline
-
         `;
 
 
@@ -184,7 +141,6 @@ async function loadDiscord(){
 
 
 }
-
 
 
 
@@ -200,23 +156,23 @@ setInterval(
 
 );
 
-/* =========================================
-   TWITCH LIVE SYSTEM
-========================================= */
+
+
+
+
+
+
+// ===============================
+// TWITCH API STATUS
+// ===============================
 
 
 const liveStatus =
 document.querySelector(".live-status");
 
 
-
 const streamInfo =
 document.getElementById("streamInfo");
-
-
-
-const twitchEmbed =
-document.getElementById("twitch-embed");
 
 
 
@@ -226,115 +182,20 @@ const TWITCH_API =
 
 
 
-let twitchLoaded = false;
-
-
-
-
-
-function loadTwitchPlayer(){
-
-
-    if(twitchLoaded)
-    return;
-
-
-
-    twitchLoaded = true;
-
-
-
-    const script =
-    document.createElement("script");
-
-
-
-    script.src =
-    "https://player.twitch.tv/js/embed/v1.js";
-
-
-
-    script.onload = ()=>{
-
-
-        new Twitch.Player(
-
-            "twitch-embed",
-
-            {
-
-                width:"100%",
-
-                height:480,
-
-                channel:"fittyknowsball",
-
-                autoplay:true,
-
-                muted:false,
-
-            }
-
-        );
-
-
-    };
-
-
-
-    document.body.appendChild(script);
-
-
-}
-
-
-
-
-
-
-
-function removeTwitchPlayer(){
-
-
-    twitchLoaded = false;
-
-
-
-    if(twitchEmbed){
-
-
-        twitchEmbed.innerHTML = "";
-
-
-    }
-
-
-}
-
-
-
-
-
-
 
 async function checkTwitch(){
-
 
 
     try{
 
 
-
         const response =
-
         await fetch(TWITCH_API);
 
 
 
         const data =
-
         await response.json();
-
 
 
 
@@ -352,14 +213,9 @@ async function checkTwitch(){
 
             liveStatus.innerHTML =
 
-
             `
-
             🔴 LIVE NOW
-
             `;
-
-
 
 
 
@@ -381,7 +237,6 @@ async function checkTwitch(){
             <p>
 
             👥 ${data.viewers}
-
             viewers
 
             </p>
@@ -401,15 +256,6 @@ async function checkTwitch(){
 
 
 
-
-
-
-            loadTwitchPlayer();
-
-
-
-
-
         }
 
         else{
@@ -424,19 +270,13 @@ async function checkTwitch(){
 
             liveStatus.innerHTML =
 
-
             `
-
             ⚫ Currently Offline
-
             `;
 
 
 
-
-
             streamInfo.innerHTML =
-
 
             `
 
@@ -444,18 +284,10 @@ async function checkTwitch(){
 
             RealFitty is currently offline.
 
-            Check back during the next stream!
-
             </p>
-
 
             `;
 
-
-
-
-
-            removeTwitchPlayer();
 
 
         }
@@ -466,52 +298,38 @@ async function checkTwitch(){
     }
 
 
-
     catch(error){
 
 
-
         console.log(
-
         "Twitch Error:",
-
         error
-
         );
 
 
 
         liveStatus.innerHTML =
 
-
         `
-
         ⚠️ Twitch Error
-
         `;
 
 
 
         streamInfo.innerHTML =
 
-
         `
-
         <p>
-
         Unable to load stream data.
-
         </p>
-
         `;
+
 
 
     }
 
 
 }
-
-
 
 
 
@@ -521,15 +339,86 @@ checkTwitch();
 
 setInterval(
 
-checkTwitch,
+    checkTwitch,
 
-60000
+    60000
 
 );
 
-/* =========================================
-   SCROLL REVEAL
-========================================= */
+
+
+
+
+
+
+// ===============================
+// TWITCH EMBED PLAYER
+// ===============================
+
+
+function loadTwitchPlayer(){
+
+
+    if(!document.getElementById("twitch-embed")){
+
+        return;
+
+    }
+
+
+
+    new Twitch.Embed(
+
+        "twitch-embed",
+
+        {
+
+
+            width:"100%",
+
+
+            height:480,
+
+
+            channel:"fittyknowsball",
+
+
+            layout:"video-with-chat",
+
+
+            theme:"dark",
+
+
+            autoplay:false,
+
+
+            parent:[
+
+                "cloutzx.github.io"
+
+            ]
+
+        }
+
+
+    );
+
+
+}
+
+
+
+loadTwitchPlayer();
+
+
+
+
+
+
+
+// ===============================
+// SCROLL REVEAL
+// ===============================
 
 
 const observer =
@@ -539,23 +428,24 @@ new IntersectionObserver(
 (entries)=>{
 
 
-    entries.forEach(
+entries.forEach(
 
-    (entry)=>{
-
-
-        if(entry.isIntersecting){
+(entry)=>{
 
 
-            entry.target.classList.add(
-            "show"
-            );
+if(entry.isIntersecting){
 
 
-        }
+    entry.target.classList.add(
+    "show"
+    );
 
 
-    });
+}
+
+
+
+});
 
 
 },
@@ -563,9 +453,10 @@ new IntersectionObserver(
 
 {
 
-    threshold:.15
+threshold:.15
 
 }
+
 
 
 );
@@ -575,16 +466,15 @@ new IntersectionObserver(
 
 
 
+
 document
-
 .querySelectorAll(".fade")
-
 .forEach(
 
 (section)=>{
 
 
-    observer.observe(section);
+observer.observe(section);
 
 
 }
@@ -597,278 +487,20 @@ document
 
 
 
-/* =========================================
-   BUTTON RIPPLE EFFECT
-========================================= */
 
-
-document
-
-.querySelectorAll(".btn")
-
-.forEach(
-
-(button)=>{
-
-
-    button.addEventListener(
-
-    "click",
-
-    function(e){
-
-
-
-        const ripple =
-        document.createElement("span");
-
-
-
-        ripple.style.position =
-        "absolute";
-
-
-
-        ripple.style.width =
-        "20px";
-
-
-
-        ripple.style.height =
-        "20px";
-
-
-
-        ripple.style.background =
-        "rgba(255,255,255,.5)";
-
-
-
-        ripple.style.borderRadius =
-        "50%";
-
-
-
-        ripple.style.transform =
-        "translate(-50%,-50%)";
-
-
-
-        ripple.style.pointerEvents =
-        "none";
-
-
-
-        ripple.style.left =
-        e.offsetX + "px";
-
-
-
-        ripple.style.top =
-        e.offsetY + "px";
-
-
-
-        ripple.style.animation =
-        "ripple .6s linear";
-
-
-
-        this.appendChild(ripple);
-
-
-
-        setTimeout(()=>{
-
-
-            ripple.remove();
-
-
-        },600);
-
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-/* =========================================
-   PAGE LOAD FADE
-========================================= */
+// ===============================
+// PAGE LOAD
+// ===============================
 
 
 window.addEventListener(
-
 "load",
-
 ()=>{
 
 
-    document.body.style.opacity =
-    "1";
+document.body.style.opacity = "1";
 
 
 }
 
 );
-
-
-
-
-
-
-
-/* =========================================
-   SMOOTH CARD TILT
-========================================= */
-
-
-document
-
-.querySelectorAll(".card, .hero-card")
-
-.forEach(
-
-(card)=>{
-
-
-card.addEventListener(
-
-"mousemove",
-
-(e)=>{
-
-
-    const rect =
-    card.getBoundingClientRect();
-
-
-
-    const x =
-    e.clientX - rect.left;
-
-
-
-    const y =
-    e.clientY - rect.top;
-
-
-
-    const centerX =
-    rect.width / 2;
-
-
-
-    const centerY =
-    rect.height / 2;
-
-
-
-    const rotateX =
-    (y-centerY)/25;
-
-
-
-    const rotateY =
-    (centerX-x)/25;
-
-
-
-    card.style.transform =
-
-    `
-
-    perspective(1000px)
-
-    rotateX(${rotateX}deg)
-
-    rotateY(${rotateY}deg)
-
-    translateY(-5px)
-
-    `;
-
-
-});
-
-
-
-
-
-card.addEventListener(
-
-"mouseleave",
-
-()=>{
-
-
-    card.style.transform =
-    "";
-
-
-});
-
-
-});
-
-
-
-
-
-
-
-/* =========================================
-   RIPPLE ANIMATION STYLE
-========================================= */
-
-
-const style =
-document.createElement("style");
-
-
-
-style.innerHTML =
-
-
-`
-
-@keyframes ripple{
-
-
-from{
-
-transform:
-translate(-50%,-50%)
-scale(1);
-
-opacity:1;
-
-}
-
-
-
-to{
-
-transform:
-translate(-50%,-50%)
-scale(15);
-
-opacity:0;
-
-}
-
-
-}
-
-`;
-
-
-
-document.head.appendChild(style);
