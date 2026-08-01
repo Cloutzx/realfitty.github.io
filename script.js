@@ -40,14 +40,8 @@ for(let i = 0; i < 100; i++){
 
 }
 
-
-
-
-// Cursor Glow
-
 const cursorGlow =
 document.getElementById("cursorGlow");
-
 
 document.addEventListener(
 "mousemove",
@@ -64,20 +58,11 @@ document.addEventListener(
 
 });
 
-
-
-
-
-
-// Discord Counter
-
 const discordCount =
 document.querySelector(".discord-count");
 
-
 const SERVER_ID =
 "1532504492342378596";
-
 
 async function loadDiscord(){
 
@@ -119,7 +104,6 @@ async function loadDiscord(){
 
     }
 
-
     catch(error){
 
 
@@ -152,15 +136,6 @@ setInterval(
 
 );
 
-
-
-
-
-
-
-
-// Twitch Status
-
 const liveStatus =
 document.querySelector(".live-status");
 
@@ -168,12 +143,9 @@ document.querySelector(".live-status");
 const streamInfo =
 document.getElementById("streamInfo");
 
-
 const TWITCH_API =
 
 "https://realfitty-twitch-api.onrender.com/twitch";
-
-
 
 async function checkTwitch(){
 
@@ -184,27 +156,20 @@ async function checkTwitch(){
         const response =
         await fetch(TWITCH_API);
 
-
         const data =
         await response.json();
 
-
-
         if(data.live){
-
 
             liveStatus.classList.add(
             "live"
             );
-
 
             liveStatus.innerHTML =
 
             `
             🔴 LIVE NOW
             `;
-
-
 
             streamInfo.innerHTML =
 
@@ -238,12 +203,12 @@ async function checkTwitch(){
 
             </p>
 
+
             `;
 
 
 
         }
-
 
         else{
 
@@ -274,9 +239,7 @@ async function checkTwitch(){
 
             `;
 
-
         }
-
 
     }
 
@@ -314,11 +277,7 @@ async function checkTwitch(){
 
 }
 
-
-
 checkTwitch();
-
-
 
 setInterval(
 
@@ -328,15 +287,6 @@ setInterval(
 
 );
 
-
-
-
-
-
-
-
-// Twitch Player
-
 function loadTwitchPlayer(){
 
 
@@ -345,8 +295,6 @@ function loadTwitchPlayer(){
         return;
 
     }
-
-
 
     new Twitch.Embed(
 
@@ -387,18 +335,7 @@ function loadTwitchPlayer(){
 
 }
 
-
-
 loadTwitchPlayer();
-
-
-
-
-
-
-
-
-// Fade Animations
 
 const observer =
 
@@ -406,11 +343,9 @@ new IntersectionObserver(
 
 (entries)=>{
 
-
 entries.forEach(
 
 (entry)=>{
-
 
 if(entry.isIntersecting){
 
@@ -439,8 +374,6 @@ threshold:.15
 );
 
 
-
-
 document
 .querySelectorAll(".fade")
 .forEach(
@@ -456,13 +389,6 @@ observer.observe(section);
 );
 
 
-
-
-
-
-
-// Page Load
-
 window.addEventListener(
 "load",
 ()=>{
@@ -470,86 +396,6 @@ window.addEventListener(
 
 document.body.style.opacity = "1";
 
-
 }
 
 );
-
-
-
-
-
-
-
-
-// =====================================
-// SECRET ROLE SYSTEM
-// =====================================
-
-
-const secretButton =
-document.getElementById("secretButton");
-
-
-const secretPopup =
-document.getElementById("secretPopup");
-
-
-
-if(secretButton && secretPopup){
-
-
-    secretButton.onclick = ()=>{
-
-
-        secretPopup.style.display = "flex";
-
-
-    };
-
-
-}
-
-
-
-
-
-
-function checkSecret(){
-
-
-    const input =
-    document.getElementById("secretInput").value;
-
-
-
-    const message =
-    document.getElementById("secretMessage");
-
-
-
-    if(input.toLowerCase() === "realfitty"){
-
-
-        message.innerHTML =
-        "✅ Correct! Secret unlocked";
-
-
-        // Discord role API goes here later
-
-
-
-    }
-
-
-    else{
-
-
-        message.innerHTML =
-        "❌ Wrong phrase";
-
-
-    }
-
-
-}
