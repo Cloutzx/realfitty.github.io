@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,10 +18,13 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+    <script
+        src="https://player.twitch.tv/js/embed/v1.js">
+    </script>
 
     <style>
 
@@ -43,6 +47,9 @@
             opacity: 0;
             transition: opacity .5s ease;
         }
+
+
+        /* BACKGROUND */
 
         .background {
             position: fixed;
@@ -76,6 +83,9 @@
             }
 
         }
+
+
+        /* PARTICLES */
 
         #particles {
             position: fixed;
@@ -119,6 +129,9 @@
 
         }
 
+
+        /* CURSOR */
+
         #cursorGlow {
             position: fixed;
 
@@ -143,6 +156,9 @@
 
             z-index: -1;
         }
+
+
+        /* HERO */
 
         header {
             min-height: 100vh;
@@ -174,6 +190,9 @@
             justify-content: center;
         }
 
+
+        /* CREATOR TAG */
+
         .creator-tag {
             display: inline-block;
 
@@ -197,8 +216,12 @@
             margin-bottom: 25px;
         }
 
+
+        /* TITLE */
+
         h1 {
             font-size: 90px;
+
             font-weight: 900;
 
             letter-spacing: 8px;
@@ -212,6 +235,8 @@
                 );
 
             -webkit-background-clip: text;
+            background-clip: text;
+
             color: transparent;
 
             filter:
@@ -241,15 +266,22 @@
 
         }
 
+
+        /* HERO TEXT */
+
         .hero-text {
             margin-top: 25px;
 
             font-size: 22px;
+
             line-height: 1.7;
 
             color:
                 rgba(255,255,255,.75);
         }
+
+
+        /* STATUS */
 
         .status {
             display: flex;
@@ -263,6 +295,10 @@
 
         .live-status,
         .discord-count {
+
+            position: relative;
+
+            overflow: hidden;
 
             padding: 18px 28px;
 
@@ -290,39 +326,6 @@
                 0 0 25px rgba(64,130,214,.18);
 
             transition: .35s ease;
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .live-status::before,
-        .discord-count::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -120%;
-
-            width: 80%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    transparent,
-                    rgba(255,255,255,.18),
-                    transparent
-                );
-
-            transition: .6s;
-        }
-
-        .live-status:hover::before,
-        .discord-count:hover::before {
-            left: 120%;
         }
 
         .live-status:hover,
@@ -334,9 +337,6 @@
             border-color:
                 rgba(64,130,214,.65);
 
-            background:
-                rgba(20,30,50,.85);
-
             box-shadow:
                 0 15px 40px rgba(0,0,0,.45),
                 0 0 45px rgba(64,130,214,.35);
@@ -344,7 +344,8 @@
 
         .live-status.live {
 
-            border-color: #ff3b3b;
+            border-color:
+                #ff3b3b;
 
             background:
                 rgba(80,15,15,.65);
@@ -375,6 +376,7 @@
 
         }
 
+
         /* CREATOR CODE */
 
         .support-code {
@@ -382,16 +384,22 @@
             position: relative;
 
             display: flex;
+
             align-items: center;
 
             gap: 18px;
 
             width: fit-content;
+
             max-width: 100%;
 
             margin-top: 30px;
 
             padding: 18px 24px;
+
+            text-decoration: none;
+
+            color: white;
 
             background:
                 linear-gradient(
@@ -405,8 +413,11 @@
 
             border-radius: 20px;
 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
 
             box-shadow:
                 0 10px 35px rgba(0,0,0,.3),
@@ -415,35 +426,6 @@
             overflow: hidden;
 
             transition: .35s ease;
-        }
-
-        .support-code::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -120%;
-
-            width: 80%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    transparent,
-                    rgba(255,255,255,.2),
-                    transparent
-                );
-
-            transform: skewX(-20deg);
-
-            transition: .7s;
-        }
-
-        .support-code:hover::before {
-            left: 140%;
         }
 
         .support-code:hover {
@@ -464,7 +446,10 @@
             width: 46px;
             height: 46px;
 
+            flex-shrink: 0;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -486,6 +471,7 @@
         .support-content {
 
             display: flex;
+
             flex-direction: column;
 
             gap: 3px;
@@ -510,7 +496,11 @@
         }
 
         .support-content strong b {
+
             color: #70b4ff;
+
+            text-shadow:
+                0 0 15px rgba(64,130,214,.6);
         }
 
         .support-content p {
@@ -538,6 +528,9 @@
             transform:
                 translateX(6px);
         }
+
+
+        /* BUTTONS */
 
         .buttons {
 
@@ -580,38 +573,10 @@
             border:
                 1px solid rgba(255,255,255,.18);
 
-            backdrop-filter: blur(8px);
-
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter:
+                blur(8px);
 
             transition: .35s;
-        }
-
-        .btn::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -120%;
-
-            width: 100%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    transparent,
-                    rgba(255,255,255,.35),
-                    transparent
-                );
-
-            transition: .6s;
-        }
-
-        .btn:hover::before {
-            left: 120%;
         }
 
         .btn:hover {
@@ -636,6 +601,9 @@
             border: none;
         }
 
+
+        /* HERO CARD */
+
         .hero-card {
 
             width: 380px;
@@ -647,9 +615,8 @@
 
             border-radius: 30px;
 
-            backdrop-filter: blur(12px);
-
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
 
             border:
                 1px solid rgba(255,255,255,.18);
@@ -664,47 +631,6 @@
 
             animation:
                 floatCard 5s infinite ease-in-out;
-        }
-
-        .hero-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 200%;
-            height: 100%;
-
-            top: -120%;
-            left: -50%;
-
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(255,255,255,.15),
-                    transparent
-                );
-
-            transform: rotate(25deg);
-
-            animation:
-                shine 5s infinite;
-        }
-
-        @keyframes shine {
-
-            0% {
-                top: -120%;
-            }
-
-            50% {
-                top: 120%;
-            }
-
-            100% {
-                top: 120%;
-            }
-
         }
 
         @keyframes floatCard {
@@ -751,6 +677,9 @@
             line-height: 1.7;
         }
 
+
+        /* SECTIONS */
+
         section {
 
             display: flex;
@@ -773,9 +702,8 @@
 
             border-radius: 30px;
 
-            backdrop-filter: blur(8px);
-
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter:
+                blur(8px);
 
             border:
                 1px solid rgba(255,255,255,.18);
@@ -817,6 +745,200 @@
                 rgba(255,255,255,.75);
         }
 
+
+        /* TRN */
+
+        .trn-card {
+            text-align: center;
+        }
+
+        .trn-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+        }
+
+        .trn-icon {
+
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #29537D,
+                    #4082D6
+                );
+
+            font-size: 24px;
+
+            box-shadow:
+                0 0 25px rgba(64,130,214,.4);
+        }
+
+        .trn-name {
+
+            font-size: 27px;
+
+            font-weight: 900;
+
+            color: white;
+        }
+
+        .trn-subtitle {
+
+            color:
+                rgba(255,255,255,.6);
+
+            margin-bottom: 30px;
+        }
+
+        .trn-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 15px;
+
+            margin: 30px 0;
+        }
+
+        .trn-stat {
+
+            padding: 25px 15px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(20,30,50,.65);
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            transition: .35s;
+        }
+
+        .trn-stat:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(64,130,214,.5);
+
+            background:
+                rgba(64,130,214,.15);
+
+            box-shadow:
+                0 0 30px rgba(64,130,214,.2);
+        }
+
+        .trn-stat-icon {
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+        .trn-stat strong {
+
+            display: block;
+
+            font-size: 20px;
+
+            color: #70b4ff;
+        }
+
+        .trn-stat span {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color:
+                rgba(255,255,255,.55);
+
+            text-transform: uppercase;
+        }
+
+        .trn-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 15px 28px;
+
+            border-radius: 16px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #29537D,
+                    #4082D6
+                );
+
+            box-shadow:
+                0 0 25px rgba(64,130,214,.2);
+
+            transition: .35s;
+        }
+
+        .trn-button:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.03);
+
+            box-shadow:
+                0 0 40px rgba(64,130,214,.5);
+        }
+
+        .trn-note {
+
+            margin-top: 15px;
+
+            font-size: 12px !important;
+
+            color:
+                rgba(255,255,255,.4) !important;
+        }
+
+
+        /* TWITCH */
+
         .live-card {
             text-align: center;
         }
@@ -849,6 +971,9 @@
                 1px solid rgba(255,255,255,.15);
         }
 
+
+        /* DISCORD */
+
         .discord-widget {
 
             margin-top: 30px;
@@ -864,6 +989,9 @@
         .discord-widget iframe {
             display: block;
         }
+
+
+        /* SOCIALS */
 
         .social-grid {
 
@@ -921,59 +1049,8 @@
                 rgba(255,255,255,.7);
         }
 
-        .stats-card {
 
-            display: grid;
-
-            grid-template-columns:
-                repeat(4,1fr);
-
-            gap: 20px;
-
-            text-align: center;
-        }
-
-        .stat {
-
-            padding: 25px;
-
-            border-radius: 20px;
-
-            background:
-                rgba(20,30,50,.65);
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            transition: .35s;
-        }
-
-        .stat:hover {
-
-            transform:
-                translateY(-8px);
-
-            background:
-                rgba(64,130,214,.25);
-
-            box-shadow:
-                0 0 35px rgba(64,130,214,.35);
-        }
-
-        .stat h3 {
-
-            font-size: 35px;
-
-            margin-bottom: 15px;
-        }
-
-        .stat span {
-
-            color:
-                rgba(255,255,255,.7);
-
-            font-weight: 700;
-        }
+        /* FOOTER */
 
         footer {
 
@@ -1002,10 +1079,15 @@
 
             -webkit-background-clip: text;
 
+            background-clip: text;
+
             color: transparent;
 
             margin-bottom: 15px;
         }
+
+
+        /* FADE */
 
         .fade {
 
@@ -1026,129 +1108,196 @@
                 translateY(0);
         }
 
+
+        /* TABLET */
+
         @media(max-width:1000px) {
 
             .hero {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
 
-                text-align: center;
+                text-align:
+                    center;
             }
 
             .hero-left {
-                max-width: 100%;
+
+                max-width:
+                    100%;
             }
 
             .status,
             .buttons {
-                justify-content: center;
+
+                justify-content:
+                    center;
             }
 
             .hero-card {
-                width: 100%;
+
+                width:
+                    100%;
             }
 
             h1 {
-                font-size: 65px;
+
+                font-size:
+                    65px;
             }
 
             .support-code {
-                margin-left: auto;
-                margin-right: auto;
-                text-align: left;
+
+                margin-left:
+                    auto;
+
+                margin-right:
+                    auto;
+
+                text-align:
+                    left;
             }
 
         }
+
+
+        /* MOBILE */
 
         @media(max-width:700px) {
 
             header {
-                padding: 50px 20px;
+
+                padding:
+                    50px 20px;
             }
 
             h1 {
 
-                font-size: 45px;
+                font-size:
+                    45px;
 
-                letter-spacing: 4px;
+                letter-spacing:
+                    4px;
             }
 
             .hero-text {
-                font-size: 17px;
+
+                font-size:
+                    17px;
             }
 
             .card {
-                padding: 30px 20px;
+
+                padding:
+                    30px 20px;
             }
 
             .card h2 {
-                font-size: 25px;
+
+                font-size:
+                    25px;
             }
 
             .social-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-card {
 
                 grid-template-columns:
-                    repeat(2,1fr);
+                    1fr;
             }
 
             .btn {
-                width: 100%;
+
+                width:
+                    100%;
             }
 
             .live-status,
             .discord-count {
-                width: 100%;
+
+                width:
+                    100%;
             }
 
             #twitch-embed {
-                min-height: 350px;
+
+                min-height:
+                    350px;
             }
 
             .support-code {
-                width: 100%;
+
+                width:
+                    100%;
             }
 
             .support-content strong {
-                font-size: 17px;
+
+                font-size:
+                    17px;
+            }
+
+            .trn-stats {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .trn-header {
+
+                flex-direction:
+                    column;
             }
 
         }
 
+
+        /* SMALL PHONES */
+
         @media(max-width:450px) {
 
-            .stats-card {
-                grid-template-columns: 1fr;
-            }
-
             .hero-card {
-                padding: 25px;
+
+                padding:
+                    25px;
             }
 
             h1 {
-                font-size: 38px;
+
+                font-size:
+                    38px;
             }
 
             .hero-card-number {
-                font-size: 25px;
+
+                font-size:
+                    25px;
             }
 
             .support-code {
-                gap: 12px;
-                padding: 15px;
+
+                gap:
+                    12px;
+
+                padding:
+                    15px;
             }
 
             .support-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
+
+                width:
+                    40px;
+
+                height:
+                    40px;
+
+                font-size:
+                    18px;
             }
 
             .support-arrow {
-                display: none;
+
+                display:
+                    none;
             }
 
         }
@@ -1213,9 +1362,13 @@
                 </div>
 
 
-                <!-- FORTNITE CREATOR CODE -->
+                <!-- CREATOR CODE -->
 
-                <div class="support-code">
+                <a
+                    href="https://www.fortnite.com/item-shop"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="support-code">
 
                     <div class="support-icon">
                         ⚡
@@ -1242,20 +1395,19 @@
                         →
                     </div>
 
-                </div>
+                </a>
 
 
                 <div class="buttons">
 
                     <a
-                        href="https://discord.gg/yqp7UNBggW "
+                        href="https://discord.gg/yqp7UNBggW"
                         target="_blank"
                         class="btn primary">
 
                         💬 Join Discord
 
                     </a>
-
 
                     <a
                         href="#live"
@@ -1264,7 +1416,6 @@
                         🎮 Watch Live
 
                     </a>
-
 
                     <a
                         href="#socials"
@@ -1325,8 +1476,9 @@
                 <br><br>
 
                 Whether you're here for competitive Fortnite,
-                funny clips, live streams, or just looking
-                for people to play with, you're in the right place.
+                funny clips, live streams,
+                or just looking for people to play with,
+                you're in the right place.
 
                 <br><br>
 
@@ -1341,7 +1493,109 @@
     </section>
 
 
-    <!-- LIVE -->
+    <!-- TRN STATS -->
+
+    <section class="fade">
+
+        <div class="card trn-card">
+
+            <div class="trn-header">
+
+                <div class="trn-icon">
+                    🎯
+                </div>
+
+                <div class="trn-name">
+                    REALFITTY
+                </div>
+
+            </div>
+
+            <p class="trn-subtitle">
+                Fortnite Tracker • Competitive Profile
+            </p>
+
+
+            <div class="trn-stats">
+
+                <div class="trn-stat">
+
+                    <div class="trn-stat-icon">
+                        🏆
+                    </div>
+
+                    <strong>
+                        TRN
+                    </strong>
+
+                    <span>
+                        Rating
+                    </span>
+
+                </div>
+
+
+                <div class="trn-stat">
+
+                    <div class="trn-stat-icon">
+                        🎮
+                    </div>
+
+                    <strong>
+                        Fortnite
+                    </strong>
+
+                    <span>
+                        Profile
+                    </span>
+
+                </div>
+
+
+                <div class="trn-stat">
+
+                    <div class="trn-stat-icon">
+                        📊
+                    </div>
+
+                    <strong>
+                        Live
+                    </strong>
+
+                    <span>
+                        Stats
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="https://fortnitetracker.com/profile/all/tiktok%20realfitty"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="trn-button">
+
+                🎯 View Full TRN Profile
+                <span>→</span>
+
+            </a>
+
+
+            <p class="trn-note">
+
+                Stats are provided by Fortnite Tracker
+                and may update as you play.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TWITCH -->
 
     <section
         id="live"
@@ -1432,7 +1686,6 @@
 
             <div class="social-grid">
 
-
                 <a
                     href="#"
                     class="social-box">
@@ -1453,6 +1706,7 @@
                 <a
                     href="https://www.twitch.tv/fittyknowsball"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="social-box">
 
                     <h3>
@@ -1465,7 +1719,6 @@
                     </p>
 
                 </a>
-
 
             </div>
 
@@ -1733,7 +1986,9 @@
                     "twitch-embed"
                 )
             ) {
+
                 return;
+
             }
 
             new Twitch.Embed(
@@ -1768,7 +2023,7 @@
         loadTwitchPlayer();
 
 
-        /* FADE ANIMATIONS */
+        /* SCROLL ANIMATIONS */
 
         const observer =
             new IntersectionObserver(
@@ -1811,7 +2066,7 @@
             );
 
 
-        /* PAGE FADE IN */
+        /* PAGE LOAD */
 
         window.addEventListener(
             "load",
@@ -1828,3 +2083,4 @@
 </body>
 
 </html>
+```
